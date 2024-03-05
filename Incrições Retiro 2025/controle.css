@@ -1,0 +1,175 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 95%; /* Aumentando a largura */
+    max-width: 1600px; /* Aumentando a largura máxima */
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333333;
+    font-weight: bold;
+}
+
+td {
+    background-color: #ffffff;
+    color: #555555;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e2e6ea;
+}
+
+.idclass {
+    width: 30px;
+}
+
+.mail {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.botoes-acao {
+    display: flex;
+    align-items: center;
+}
+
+.botoes-acao button {
+    padding: 10px 16px; /* Aumentando o preenchimento */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Aumentando o espaçamento entre os botões */
+}
+
+.pago{
+    background-color: #1b7504;
+    color: #ffffff;
+}
+
+.pago:hover{
+    background-color: #32a316;
+    color: #ffffff;
+}
+
+.botoes-acao button.excluir {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.botoes-acao button.pendente {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.botoes-acao button:hover {
+    filter: brightness(0.9);
+}
+/* Estilos para os botões de navegação */
+.pagination-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o número da página atual */
+.current-page {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+/* Estilos para os números das páginas */
+.page-number {
+    background-color: #f8f9fa;
+    color: #333333;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+    margin-left: 720px;
+}
+
+.page-number:hover {
+    background-color: #e2e6ea;
+}
+/* Estilo para o botão de relatório */
+#botao-relatorio {
+    position: absolute;
+    top: 30px; /* Distância da parte superior da tabela */
+    right: 180px; /* Distância da margem direita da tabela */
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo de hover para o botão de relatório */
+#botao-relatorio:hover {
+    background-color: #0056b3;
+}
+
+#botao-imprimir {
+    position: absolute;
+    top: 200px; /* Distância da parte superior da tabela */
+    right: 200px; /* Distância da margem direita da tabela */
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#botao-imprimir:hover {
+    background-color: #0056b3;
+}
+
+img{
+    display: none;
+}
+

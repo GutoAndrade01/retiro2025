@@ -1,0 +1,87 @@
+/// Função para realizar a ação de "PAGO"
+function acaoPago(idPessoa) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            if (response.statusChanged) {
+                console.log("Atualizado para PAGO com sucesso!");
+                carregarDadosTabela(); // Atualiza a tabela após a operação ser realizada
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: 'Status Alterado para PAGO com sucesso!'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atenção!',
+                    text: 'Este registro já está com o status PAGO.'
+                });
+            }
+        }
+    };
+    xmlhttp.open("POST", "pagar.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("idPessoa=" + idPessoa + "&status=PAGO");
+}
+
+// Função para realizar a ação de "PENDENTE"
+function acaoPendente(idPessoa) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            if (response.statusChanged) {
+                console.log("Atualizado para PENDENTE com sucesso!");
+                carregarDadosTabela(); // Atualiza a tabela após a operação ser realizada
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: 'Status Alterado para PENDENTE com sucesso!'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atenção!',
+                    text: 'Este registro já está com o status PENDENTE.'
+                });
+            }
+        }
+    };
+    xmlhttp.open("POST", "pendente.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("idPessoa=" + idPessoa + "&status=PENDENTE");
+}
+
+// Função para realizar a ação de exclusão
+function acaoExcluir(idPessoa) {
+    // Alerta de confirmação antes de excluir o registro
+    Swal.fire({
+        icon: 'warning',
+        title: 'Tem certeza?',
+        text: 'Você deseja realmente excluir este registro?',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Se o usuário clicar em "Sim, excluir!", proceda com a exclusão
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Registro excluído com sucesso!");
+                    carregarDadosTabela(); // Atualiza a tabela após a operação ser realizada
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso!',
+                        text: 'Registro excluído com sucesso!'
+                    });
+                }
+            };
+            xmlhttp.open("POST", "excluir.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("idPessoa=" + idPessoa);
+        }
+    });
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formInscricao.css">
+    <script src="js/jquery-3.6.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mask.min.js" type="text/javascript"></script>
+    <title>Ficha de Incrição para o Retiro Espiritual 2025</title>
+</head>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#Cpf").mask("000.000.000-00");
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#Fone").mask("(00)00000-0000");
+    })
+</script>
+
+<body>
+    <div class="container">
+        
+        <div class="formulario">
+            <form action="inscricoesRetiro.php" method="POST">
+
+                <h1>Ficha de Incrição Retiro 2025</h1>
+
+                <div>
+                    <div class="labels">
+                        <label>Nome</label>
+                    </div>
+                    <input class="imputs" name="nomeComp" id="nomeComp" type="text" placeholder="Nome Completo" maxlength="40" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>CPF</label>
+                    </div>
+                    <input class="imputs m1" name="cpf" id="Cpf" type="text" placeholder="Informe o Seu CPF" maxlength="15" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Idade</label>
+                    </div>
+                    <input class="imputs m1" name="idade" type="text" placeholder="Informe a Sua Idade" maxlength="2" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Estado Civil</label>
+                    </div>
+                    <select class="selectList" name="EstadoCivil" required>
+                        <option value="other">-</option>
+                        <option value="soteiro">Solteiro(a)</option>
+                        <option value="casado">Casado(a)</option>
+                        <option value="divorciado">Divorciado(a)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>E-mail</label>
+                    </div>
+                    <input class="imputs" name="mail" type="email" placeholder="Informe o Seu E-mail" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Contato</label>
+                    </div>
+                    <input class="imputs m1" name="tel" id="Fone" type="tel" placeholder="(00)00000-0000" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Sexo</label>
+                    </div>
+                    <select class="selectList" name="sexo" required>
+                        <option value="other">-</option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>IASD</label>
+                    </div>
+                    <input class="imputs" name="igreja" id="iasd" type="text" placeholder="Informe Sua Igreja" required>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Cozinha Própria</label>
+                    </div>
+                    <select class="selectList" name="cozinha" required>
+                        <option >-</option>
+                        <option >Sim</option>
+                        <option >Não</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="labels">
+                        <label>Vegetariano(a)</label>
+                    </div>
+                    <select class="selectList" name="vegetariano" required>
+                        <option >-</option>
+                        <option >Sim</option>
+                        <option >Não</option>
+                    </select>
+                </div>
+
+                <div >
+                    <button class="btn">Enviar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('nomeComp').addEventListener('input', function(event) {
+        let valorInput = event.target.value;
+        // Verifica se o campo não está vazio e se a primeira letra não é maiúscula
+        if (valorInput.trim() !== '' && valorInput[0] !== valorInput[0].toUpperCase()) {
+            // Converte a primeira letra para maiúscula e concatena com o restante do texto
+            event.target.value = valorInput.charAt(0).toUpperCase() + valorInput.slice(1);
+        }
+    });
+
+    document.getElementById('iasd').addEventListener('input', function(event) {
+        let valorInput = event.target.value;
+        // Verifica se o campo não está vazio e se a primeira letra não é maiúscula
+        if (valorInput.trim() !== '' && valorInput[0] !== valorInput[0].toUpperCase()) {
+            // Converte a primeira letra para maiúscula e concatena com o restante do texto
+            event.target.value = valorInput.charAt(0).toUpperCase() + valorInput.slice(1);
+        }
+    });
+</script>
+
+</html>
